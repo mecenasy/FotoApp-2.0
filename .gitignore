@@ -45,3 +45,15 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+[Bb]in/
+FotoApp/bin/
+FotoApp/obj/
+FotoAppClient/bin/
+FotoAppClient/obj/
+FotoAppCommands/bin/
+FotoAppCommands/obj/
+FotoAppModels/bin/
+FotoAppModels/obj/
+FotoAppService/obj/
+FotoAppService/bin/
+packages/
