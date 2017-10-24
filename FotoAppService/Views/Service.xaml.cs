@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FotoAppService
+namespace FotoAppService.Views
 {
     /// <summary>
-    /// Interaction logic for UserControl1.xaml
+    /// Interaction logic for Service.xaml
     /// </summary>
-    public partial class UserControl1 : UserControl
+    public partial class Service : UserControl
     {
-        public UserControl1()
+        public Service()
         {
             InitializeComponent();
         }

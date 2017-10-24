@@ -7,7 +7,7 @@ using System.Windows;
 using FotoApp.Main;
 using FotoAppClient;
 using FotoAppCommands;
-using FotoAppCommands.FotoAppClientCommands;
+using FotoAppService;
 using Microsoft.Practices.Unity;
 using Prism.Modularity;
 using Prism.Mvvm;
@@ -31,8 +31,7 @@ namespace FotoApp
         protected override void ConfigureContainer()
         {
             base.ConfigureContainer();
-            Container.RegisterType<IDupa, Dupa>(new ContainerControlledLifetimeManager());
-            Container.RegisterType<Cos, Cos>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<IFotoAppCommand, FotoAppCommand>(new ContainerControlledLifetimeManager());
         }
 
         protected override void ConfigureViewModelLocator()
@@ -45,6 +44,7 @@ namespace FotoApp
         {
             var catalog = (ModuleCatalog)ModuleCatalog;
             catalog.AddModule(typeof(FotoAppClientModule));
+            catalog.AddModule(typeof(FotoAppServiceModule));
         }
     }
 }

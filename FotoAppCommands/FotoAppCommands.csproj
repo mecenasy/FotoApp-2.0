@@ -64,9 +64,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cos.cs" />
-    <Compile Include="FotoAppClientCommands\Dupa.cs" />
-    <Compile Include="FotoAppClientCommands\IDupa.cs" />
+    <Compile Include="FotoAppCommand.cs" />
+    <Compile Include="IFotoAppCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
