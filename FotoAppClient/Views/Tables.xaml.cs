@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace FotoAppClient.Views
 {
     /// <summary>
-    /// Interaction logic for Table.xaml
+    /// Interaction logic for Tables.xaml
     /// </summary>
-    public partial class Table : UserControl
+    public partial class Tables : UserControl
     {
-        public Table()
+        public Tables()
         {
             InitializeComponent();
         }

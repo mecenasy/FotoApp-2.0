@@ -9,6 +9,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-            
+          <Button Width="100" Height="100" Content="dupa maryna" Command="{Binding Command}"/>  
     </Grid>
 </UserControl>

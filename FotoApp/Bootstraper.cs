@@ -15,8 +15,9 @@ using Prism.Unity;
 
 namespace FotoApp
 {
-    class Bootstraper : UnityBootstrapper
+    public class Bootstraper : UnityBootstrapper
     {
+
         protected override DependencyObject CreateShell()
         {
             return Container.Resolve<Shell>();
@@ -36,6 +37,7 @@ namespace FotoApp
 
         protected override void ConfigureViewModelLocator()
         {
+            base.ConfigureViewModelLocator();
             ViewModelLocationProvider.Register<Shell, ShellViewModel>();
 
         }
@@ -45,6 +47,7 @@ namespace FotoApp
             var catalog = (ModuleCatalog)ModuleCatalog;
             catalog.AddModule(typeof(FotoAppClientModule));
             catalog.AddModule(typeof(FotoAppServiceModule));
+            
         }
     }
 }

@@ -73,10 +73,10 @@
   <ItemGroup>
     <Compile Include="FotoAppClientModule.cs" />
     <Compile Include="ViewModels\TableViewModel.cs" />
-    <Compile Include="Views\Table.xaml.cs">
-      <DependentUpon>Table.xaml</DependentUpon>
+    <Compile Include="Views\Tables.xaml.cs">
+      <DependentUpon>Tables.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\Table.xaml">
+    <Page Include="Views\Tables.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -109,6 +109,10 @@
     <ProjectReference Include="..\FotoAppCommands\FotoAppCommands.csproj">
       <Project>{ad9b536a-5594-4b00-bec5-ba86b20789fc}</Project>
       <Name>FotoAppCommands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FotoAppService\FotoAppService.csproj">
+      <Project>{6897f434-c084-4ba4-ba1f-a84ec95c2e1c}</Project>
+      <Name>FotoAppService</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
+using FotoAppService.Views;
+using Microsoft.Practices.Unity;
 using Prism.Modularity;
 using Prism.Regions;
 
@@ -11,16 +13,22 @@ namespace FotoAppService
 {
     public class FotoAppServiceModule : IModule
     {
-        private readonly RegionManager _region;
+        private readonly IRegionManager _regionManager;
+        private readonly IUnityContainer _container;
+        private IRegion _region;
 
-        public FotoAppServiceModule(RegionManager region)
+        public FotoAppServiceModule(IRegionManager regionManager, IUnityContainer container)
         {
-            _region = region;
+            _regionManager = regionManager;
+            _container = container;
         }
 
         public void Initialize()
         {
-            _region.RegisterViewWithRegion("Table", typeof(Table));
+            var service = _container.Resolve<Service>();
+            _region = _regionManager.Regions["Table"];
+            _region.Add(service, "Service");
+           // _region.Activate(service);
         }
     }
 }

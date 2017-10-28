@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FotoAppClient.Views;
+using FotoAppService.Views;
+using Microsoft.Practices.Unity;
 using Prism.Modularity;
 using Prism.Regions;
 
@@ -11,15 +13,22 @@ namespace FotoAppClient
 {
     public class FotoAppClientModule : IModule
     {
-        private readonly RegionManager _region;
-
-        public FotoAppClientModule(RegionManager region)
+        private readonly IRegionManager _regionManager;
+        private readonly IUnityContainer _container;
+        private IRegion _region;
+        public FotoAppClientModule(IRegionManager regionManager, IUnityContainer container)
         {
-            _region = region;
+            _regionManager = regionManager;
+            _container = container;
+            
         }
         public void Initialize()
         {
-            _region.RegisterViewWithRegion("Table", typeof(Table));
+            var table = _container.Resolve<Tables>();
+            _region = _regionManager.Regions["Table"];
+            
+            _region.Add(table, "Table");
+            _region.Activate(table);
         }
     }
 }
