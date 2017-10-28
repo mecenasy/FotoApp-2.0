@@ -142,6 +142,10 @@
       <Project>{6897f434-c084-4ba4-ba1f-a84ec95c2e1c}</Project>
       <Name>FotoAppService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SubEvent\SubEvent.csproj">
+      <Project>{d31c55ef-2eec-4792-a225-be8577c59330}</Project>
+      <Name>SubEvent</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

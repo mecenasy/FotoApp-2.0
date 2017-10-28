@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Prism.Commands;
 using Prism.Events;
+using SubEvent;
 
 namespace FotoAppService.ViewModels
 {
@@ -21,7 +22,7 @@ namespace FotoAppService.ViewModels
 
         private void Update()
         {
-            _aggregator.GetEvent<PubSubEvent<string>>().Publish("Table");
+            _aggregator.GetEvent<PubSubModuleEvent>().Publish("Table");
         }
 
         public DelegateCommand Command { get; set; }

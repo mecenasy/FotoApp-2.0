@@ -7,6 +7,7 @@ using Prism.Mvvm;
 using Prism.Regions;
 using FotoAppClient.Views;
 using Prism.Commands;
+using SubEvent;
 
 namespace FotoApp.Main
 {
@@ -28,7 +29,7 @@ namespace FotoApp.Main
             _regionManager = regionManager;
             _container = container;
             _aggregator = aggregator;
-            _aggregator.GetEvent<PubSubEvent<string>>().Subscribe(Update);
+            _aggregator.GetEvent<PubSubModuleEvent>().Subscribe(Update);
             //region.RegisterViewWithRegion("Tables", typeof(Tables));
 //            Command = new DelegateCommand(Update);
         }
@@ -51,9 +52,10 @@ namespace FotoApp.Main
         public void Update(string messages)
         {
             _region = _regionManager.Regions["Table"];
-
-            var toActiveView = _region.GetView(messages);
             var activNameView = _region.Name;
+            if (messages == activNameView)
+                return;
+            var toActiveView = _region.GetView(messages);
             var toDeActiveView = _region.GetView(activNameView);
             _region.Deactivate(toDeActiveView);
             _region.Activate(toActiveView);

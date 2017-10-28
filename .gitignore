@@ -56,4 +56,6 @@ FotoAppModels/bin/
 FotoAppModels/obj/
 FotoAppService/obj/
 FotoAppService/bin/
+SubEvent/obj/
+SubEvent/bin/
 packages/
