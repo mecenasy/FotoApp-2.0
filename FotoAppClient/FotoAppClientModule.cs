@@ -23,9 +23,8 @@ namespace FotoAppClient
         }
         public void Initialize()
         {
-            var table = _container.Resolve<Tables>();
+            var table = _container.Resolve<GetFotoView>();
             _region = _regionManager.Regions["Table"];
-            
             _region.Add(table, "Table");
             _region.Activate(table);
         }

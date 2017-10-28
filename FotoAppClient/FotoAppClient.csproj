@@ -72,10 +72,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FotoAppClientModule.cs" />
+    <Compile Include="ViewModels\GetFotoViewModel.cs" />
+    <Compile Include="ViewModels\ListFotoViewModel.cs" />
     <Compile Include="ViewModels\TableViewModel.cs" />
+    <Compile Include="Views\GetFotoView.xaml.cs">
+      <DependentUpon>GetFotoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListFotoView.xaml.cs">
+      <DependentUpon>ListFotoView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Tables.xaml.cs">
       <DependentUpon>Tables.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\GetFotoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListFotoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Tables.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

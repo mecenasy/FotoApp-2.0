@@ -59,4 +59,5 @@ FotoAppService/obj/
 FotoAppService/bin/
 SubEvent/obj/
 SubEvent/bin/
+.vs/
 packages/

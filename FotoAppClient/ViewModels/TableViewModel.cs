@@ -26,8 +26,4 @@ namespace FotoAppClient.ViewModels
         public DelegateCommand Command { get; set; }
         public string  cos { get; set; }
     }
-
-    internal class MessageSentEvent
-    {
-    }
 }
