@@ -1,24 +1,27 @@
-﻿using FotoAppClient.Views;
-using Microsoft.Practices.Unity;
-using Prism.Commands;
+﻿using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
-using Prism.Regions;
 
 namespace FotoAppClient.ViewModels
 {
     public class ListFotoViewModel : BindableBase
     {
         private readonly IEventAggregator _aggregator;
-        private readonly IRegionManager _regionManager;
-        private readonly IUnityContainer _container;
-        private IRegion _region;
         private int _page;
-
-
+        private int _totalPage;
         public DelegateCommand UpCommand { get; private set; }
         public DelegateCommand DawnCommand { get; private set; }
 
+        public int TotalPages
+        {
+            get => _totalPage;
+            set
+            {
+                _totalPage = value;
+                OnPropertyChanged(() => TotalPages);
+            }
+            
+        }
         public int Page
         {
             get => _page;
@@ -29,39 +32,30 @@ namespace FotoAppClient.ViewModels
             }
         }
 
-        public ListFotoViewModel(IEventAggregator aggregator, IRegionManager regionManager, IUnityContainer container)
+        public ListFotoViewModel(IEventAggregator aggregator)
         {
             _aggregator = aggregator;
-            _regionManager = regionManager;
-            _container = container;
+            InicialiseCommand();
+            _totalPage = 10;
+            _page = 2;
         }
-
         
-
         private void InicialiseCommand()
         {
-            UpCommand = new DelegateCommand(Up, CanUp);
-            DawnCommand = new DelegateCommand(Dawn, CanDawn);
+            UpCommand = new DelegateCommand(Up, CanUp).ObservesProperty(() => Page);
+            DawnCommand = new DelegateCommand(Down, CanDawn).ObservesProperty(() => Page);
         }
 
-        private bool CanDawn()
+        private bool CanDawn() => _page > 1;
+        private bool CanUp() => _totalPage > _page;
+        private void Down()
         {
-            throw new System.NotImplementedException();
-        }
-
-        private void Dawn()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private bool CanUp()
-        {
-            throw new System.NotImplementedException();
+           --Page;
         }
 
         private void Up()
         {
-            throw new System.NotImplementedException();
+            ++Page;
         }
     }
 }

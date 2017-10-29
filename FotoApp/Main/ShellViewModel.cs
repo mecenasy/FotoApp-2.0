@@ -1,6 +1,4 @@
-﻿using System.Runtime.InteropServices;
-using System.Windows.Documents;
-using FotoAppService.Views;
+﻿using FotoAppService.Views;
 using Microsoft.Practices.Unity;
 using Prism.Events;
 using Prism.Mvvm;
@@ -20,7 +18,7 @@ namespace FotoApp.Main
         private Service _service;
         public  DelegateCommand Command { get; set; }
         private IRegion _region;
-        private string _title = "Fotghhkhgcmbvcmbcmbco App";
+        private string _title = "Foto App";
         private int _height = 800;
         private int _width = 1200;
 

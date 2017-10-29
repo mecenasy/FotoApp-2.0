@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="FotoAppClient.Views.FotoInfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FotoAppClient.Views"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Image Source="{Binding Path=Image, Mode=OneWay, UpdateSourceTrigger=PropertyChanged }" 
+               HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+               Margin="5,5,5,5"  Grid.ColumnSpan="2"/>
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="70"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="{Binding Path=DownButton, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" 
+                    Command="{Binding Path=DownCommand}"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                    Margin="3,3,3,3" Grid.Column="0" />
+            <Button Content="{Binding Path=UpButton, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                    Command="{Binding Path=UpCommand}"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                    Margin="3,3,3,3" Grid.Column="2" />
+            <TextBox Text="{Binding Path=CountImage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                     Margin="3,3,3,3" Grid.Column="1" TextWrapping="Wrap" TextAlignment="Center" />
+        </Grid>
+       
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ItemsControl Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                          ItemsSource="{Binding Path=TypeList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <!--                          ItemTemplate="{StaticResource TapeListRadoButon}"-->
+                <!--                          ItemsPanel="{StaticResource ListPanel}" >-->
+            </ItemsControl>
+
+            <ItemsControl Grid.Column="0" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"   
+                           ItemsSource="{Binding Path=SizeList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <!--                           ItemsPanel="{StaticResource ListPanel}" >-->
+                <!--                           ItemTemplate="{StaticResource SiseListRadoButon}"-->
+            </ItemsControl>
+        </Grid>
+        <Button  Content="{Binding Path=OkButton, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" 
+                 Command="{Binding Path=OkCommand}"
+                 HorizontalAlignment="Right" VerticalAlignment="Stretch" 
+                 Width="100" Grid.Row="4"/>
+    </Grid>
+</UserControl>

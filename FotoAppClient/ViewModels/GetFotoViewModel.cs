@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Windows;
 using FotoAppClient.Views;
 using Microsoft.Practices.Unity;
 using Prism.Commands;
@@ -26,10 +22,7 @@ namespace FotoAppClient.ViewModels
         public string CancelButton
         {
             get => _cancelButton;
-            private set
-            {
-                _cancelButton = value;
-            }
+            private set => _cancelButton = value;
         }
         public string OkButton
         {
@@ -52,21 +45,20 @@ namespace FotoAppClient.ViewModels
         private void InicialisePanel()
         {
             _regionManager.RegisterViewWithRegion("Main", typeof(ListFotoView));
-//            var list = _container.Resolve<ListFotoView>();
-//            _region.Add(list, "ListFoto");
-//            _region.Activate(list);
+            _regionManager.RegisterViewWithRegion("LeftRegion", typeof(FotoInfoView));
+
         }
         public void InicialiseCommand()
         {
             _cancelButton = "Rezygnacja";
             _okButton = "Zatwierdź";
             OkCommand = new DelegateCommand(Ok, CanOK);
-            CancelCommand = new DelegateCommand(Cancel, CanCancel);
+            CancelCommand = new DelegateCommand(Cancel);
         }
 
         private void Ok()
         {
-            var region = _regionManager.Regions["Main"].Name;
+            MessageBox.Show("ok");
         }
 
         private bool CanOK()
@@ -76,12 +68,7 @@ namespace FotoAppClient.ViewModels
 
         private void Cancel()
         {
-            
-        }
-
-        private bool CanCancel()
-        {
-            return true;
+            MessageBox.Show("ok");
         }
     }
 }

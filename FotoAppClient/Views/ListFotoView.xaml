@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FotoAppClient.Views"
+             xmlns:prism ="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="600">
     <Grid>
@@ -27,18 +29,20 @@
                 <ColumnDefinition Width="50"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="-" HorizontalAlignment="Stretch" Margin="3,3,2,3"  VerticalAlignment="Stretch" Command="{Binding DownCommand}" />
-            <Button Grid.Column="2" Content="+" HorizontalAlignment="Stretch" Margin="3,3,3,3" VerticalAlignment="Stretch" Command="{Binding UpCommand}"/>
+            <Button  Command="{Binding Path=DawnCommand}"
+                Grid.Column="0" Content="-" HorizontalAlignment="Stretch" Margin="3,3,2,3"  VerticalAlignment="Stretch" />
+            <Button Command="{Binding Path=UpCommand}"
+                Grid.Column="2" Content="+" HorizontalAlignment="Stretch" Margin="3,3,3,3" VerticalAlignment="Stretch" />
             <TextBlock Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap"
                        Text="{Binding Path=Page, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                        VerticalAlignment="Center"/>
             <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap"
-                       Text="{Binding Path=CountPage, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                       Text="{Binding Path=TotalPages, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                        VerticalAlignment="Center"/>
             <TextBlock Grid.Column="4" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap"
                        Text="Zajęte: " VerticalAlignment="Center"/>
             <TextBlock Grid.Column="5" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap"
-                       Text="{Binding Path=Occupied, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                       Text="{Binding Path=TotalImages, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                        VerticalAlignment="Center"/>
             <TextBlock Grid.Column="6" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap"
                        Text="Total: " VerticalAlignment="Center"/>
