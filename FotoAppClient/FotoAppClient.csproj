@@ -76,6 +76,7 @@
     <Compile Include="ViewModels\FotoInfoViewModel.cs" />
     <Compile Include="ViewModels\GetFotoViewModel.cs" />
     <Compile Include="ViewModels\ListFotoViewModel.cs" />
+    <Compile Include="ViewModels\RaportViewModel.cs" />
     <Compile Include="ViewModels\TableViewModel.cs" />
     <Compile Include="Views\FotoInfoView.xaml.cs">
       <DependentUpon>FotoInfoView.xaml</DependentUpon>
@@ -85,6 +86,9 @@
     </Compile>
     <Compile Include="Views\ListFotoView.xaml.cs">
       <DependentUpon>ListFotoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RaportView.xaml.cs">
+      <DependentUpon>RaportView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Tables.xaml.cs">
       <DependentUpon>Tables.xaml</DependentUpon>
@@ -98,6 +102,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ListFotoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RaportView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
