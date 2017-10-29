@@ -47,6 +47,7 @@ namespace FotoAppClient.ViewModels
             _regionManager.RegisterViewWithRegion("Main", typeof(ListFotoView));
             _regionManager.RegisterViewWithRegion("LeftRegion", typeof(FotoInfoView));
             _regionManager.RegisterViewWithRegion("RaportRegion", typeof(RaportView));
+            _regionManager.RegisterViewWithRegion("RightRegion", typeof(OrderView));
 
         }
         public void InicialiseCommand()
